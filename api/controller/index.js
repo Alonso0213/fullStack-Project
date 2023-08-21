@@ -2,33 +2,51 @@ const express = require("express");
 const bodyParser = require("body-parser")
 const routes = express.Router()
 const { users, products } = require("../model")
+const {verifyAToken} = require("../middleware/AuthenticateUser")
 
-
-// Products Routes
-routes.get("/Products/", (req, res)=>{
+routes.get("/products", (req, res)=>{
     products.fetchProducts(req, res)
 })
-routes.get("/Products/:id", (req, res)=>{
+routes.get("/product/:id", (req, res)=>{
     products.fetchProduct(req, res)
 })
-routes.post("/AddProduct/", bodyParser.json(), 
+routes.post("/product", bodyParser.json(), 
 (req, res)=>{
     products.register(req, res)
 })
-routes.put("/Products/:id", bodyParser.json(), 
+routes.put("/product/:id", bodyParser.json(), 
 (req, res)=>{
     products.updateProduct(req, res)
 })
-routes.patch("/Products/:id", bodyParser.json(), 
+routes.patch("/product/:id", bodyParser.json(), 
 (req, res)=>{
     products.updateProduct(req, res)
 })
-routes.delete("/Products/:id", bodyParser.json(), 
+routes.delete("/product/:id", bodyParser.json(), 
 (req, res)=>{
     products.deleteProduct(req, res)
 })
 
+routes.get("/users", (req, res)=>{
+    users.fetchUsers(req, res)
+})
+routes.get("/user/:id", (req, res)=>{
+    users.fetchUser(req, res)
+})
+routes.post("/user", bodyParser.json(), (req, res)=>{ 
+    users.register(req, res)
+})
+routes.put("/user/:id", bodyParser.json(), (req, res) => {
+    users.updateUser(req, res);
+});
+routes.patch("/user/:id", bodyParser.json(), (req, res) => {
+    users.updateUser(req, res);
+});
+routes.delete("/user/:id", (req, res) => {
+    users.deleteUser(req, res);
+});
+
 module.exports = {
     express,
     routes
-  };
+};

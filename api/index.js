@@ -1,5 +1,6 @@
 const {express, routes} = require("./controller")
 const app = express()
+const path = require("path")
 const cors = require("cors")
 const errorHandeling = require("./middleware/errorHandling.js")
 const cookieParser = require("cookie-parser")
@@ -24,6 +25,10 @@ app.use(
     cors(),
     routes
 )
+
+routes.get("^/$|/limitless", (req, res)=>{
+    res.sendFile(path.resolve(__dirname, "./static/HTML/index.html"))
+})
 
 app.use(errorHandeling)
 

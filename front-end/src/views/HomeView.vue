@@ -2,23 +2,16 @@
   <body>
     <h2>Home</h2>
   <!-- <div class="back"><img src="https://i.postimg.cc/htTNCHrt/humphrey-muleba-tf-HVGj-BSGZU-unsplash.jpg" alt=""></div> -->
-   <cardComp/>
- 
 </body>
   
 </template>
 
 <script>
-
-import cardComp from '../components/cardComp.vue'
 export default{
-  components:{
-    cardComp
-
-  }
 
 }
 </script>
+
 <style scoped>
 /*body{
 

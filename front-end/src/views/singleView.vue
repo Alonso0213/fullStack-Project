@@ -1,15 +1,14 @@
 <template>
     <div>
-<h2>Admin</h2>
-<AdminComp/>
+<SinglePageComp/>
     </div>
 </template>
 
 <script>
-import AdminComp from '../components/AdminComp.vue'
+import SinglePageComp from '../components/SinglePageComp.vue'
     export default {
         components:{
-            AdminComp
+            SinglePageComp
         }
     }
 </script>

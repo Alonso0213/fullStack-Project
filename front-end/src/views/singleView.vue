@@ -1,6 +1,6 @@
 <template>
     <div>
-<SinglePageComp/>
+<center><SinglePageComp/></center>
     </div>
 </template>
 

@@ -1,7 +1,10 @@
 <template>
-    <div>
+    <body>
+        <div>
         <cardComp/>
     </div>
+    </body>
+    
 </template>
 
 <script>
@@ -16,5 +19,7 @@ import cardComp from '../components/cardComp.vue'
 </script>
 
 <style scoped>
-
+body{
+    background-color:rgba(0, 0, 0, 0.913);
+}
 </style>

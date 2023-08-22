@@ -34,12 +34,13 @@
       />
       <label class="btn btn-outline-primary" for="btnradio3">A-Z</label>
     </div>
-    <div class="btn-group" role="group">
+    <div class="btn-group" id="move" role="group">
       <button
         type="button"
         class="btn btn-primary dropdown-toggle"
         data-bs-toggle="dropdown"
         aria-expanded="false"
+        id="butt"
       >
         Category
       </button>
@@ -48,12 +49,13 @@
         <li><a class="dropdown-item" href="#">Jordan</a></li>
       </ul>
     </div>
+    <p></p>
     <div class="container-fluid">
       <div class="row" v-if="products">
         <div class="col" v-for="product in products" :key="product.productId">
           <div class="card" style="width: 18rem">
             <img :src="product.prodUrl" class="card-img-top" alt="" />
-            <div class="card-body">
+            <div class="https://previews.123rf.com/images/sergwsq/sergwsq1111/sergwsq111100030/11204875-graffiti-wall-urban-hip-hop-background.jpg">
               <h5 class="card-title">{{ product.prodName }}</h5>
               <p class="card-text">
                 <span>{{ product.category }}</span>
@@ -103,4 +105,33 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+body div #move{
+  display: grid;
+  justify-content: end;
+}  
+body{
+  background: url(https://previews.123rf.com/images/sergwsq/sergwsq1111/sergwsq111100030/11204875-graffiti-wall-urban-hip-hop-background.jpg)no-repeat;
+  background-size:cover;
+}
+.row{
+  background-color: rgba(0, 0, 0, 0.902);
+}
+h2{
+  background-color: rgba(0, 0, 0, 0.902);
+  color: rgb(255, 0, 0);
+}
+#butt{
+  background-color: black;
+  color: red;
+  outline-color: black;
+}
+label{
+  color: rgb(255, 255, 255);
+  background-color: rgba(0, 0, 0, 0.813);
+}
+
+@media (width<620px) {
+  
+}
+</style>

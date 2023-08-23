@@ -1,25 +1,23 @@
 <template>
-    <body>
-        <div>
-        <cardComp/>
+  <body>
+    <div>
+      <cardComp />
     </div>
-    </body>
-    
+  </body>
 </template>
 
 <script>
-import cardComp from '../components/cardComp.vue'
+import cardComp from "../components/cardComp.vue";
 
-    export default {
-        components:{
-            cardComp
-        }
-
-    }
+export default {
+  components: {
+    cardComp,
+  },
+};
 </script>
 
 <style scoped>
-body{
-    background-color:rgba(0, 0, 0, 0.913);
+body {
+  background-color: rgba(0, 0, 0, 0.913);
 }
 </style>

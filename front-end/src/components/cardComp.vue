@@ -72,7 +72,6 @@
                     amount: product.amount,
                   },
                 }"
-                
                 ><button class="btn btn-primary">View Product</button></router-link
               >
             </div>

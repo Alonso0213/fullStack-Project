@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>Product Listing</h2>
-    <button
+    <!-- <button
       class="btn btn-primary"
       type="button"
       data-bs-toggle="offcanvas"
@@ -27,20 +27,33 @@
         ></button>
       </div>
       <div class="offcanvas-body">
-        <input type="number" placeholder="ID" />
-        <input type="text" placeholder="Product Name" />
-        <input type="number" placeholder="Quantity" />
-        <input type="number" placeholder="Amount" />
-        <input type="text" placeholder="category" />
-        <input type="text" placeholder="Picture URL" />
+        <form @submit.prevent="submitData">
+          <input type="number" v-model="postProd.prodID" placeholder="ID" />
+  
+          <input type="text" v-model="postProd.prodName" placeholder="Product Name" />
+  
+          <input type="number" v-model="postProd.quantity" placeholder="Quantity" />
+  
+          <input type="number" v-model="postProd.amount" placeholder="Amount" />
+  
+          <input type="text" v-model="postProd.category" placeholder="category" />
+  
+          <input type="text" v-model="postProd.prodUrl" placeholder="Picture URL" />
+          <button type="submit">Submit</button>
+        </form>
       </div>
-      <button type="button" class="btn btn-primary" data-bs-dismiss="offcanvas">
+      <button
+        @click="AddProd(products)"
+        type="button"
+        class="btn btn-primary"
+        data-bs-dismiss="offcanvas"
+      >
         Add
       </button>
       <button type="button" class="btn btn-secondary" data-bs-dismiss="offcanvas">
         Close
       </button>
-    </div>
+    </div> -->
 
     <div class="table table-responsive-xxl">
       <table
@@ -57,7 +70,7 @@
             <th scope="col">Edit/Delete:</th>
           </tr>
         </thead>
-        <tbody v-for="product in products" id="display-items" :key="product.productId">
+        <tbody v-for="product in products" id="display-items" :key="product.prodID">
           <tr>
             <td>{{ product.prodID }}</td>
             <td>{{ product.prodName }}</td>
@@ -72,7 +85,6 @@
                 data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasExample"
                 aria-controls="offcanvasExample"
-                @click="editProd(product.prodID)"
               >
                 Edit
               </button>
@@ -93,15 +105,35 @@
                   ></button>
                 </div>
                 <div class="offcanvas-body">
-                  <input type="number"
-                  v-model="model.products.prodID" placeholder="ID" />
-                  <input type="text" v-model="model.products.prodName" placeholder="Product Name" />
-                  <input type="number" v-model="model.products.quantity" placeholder="Quantity" />
-                  <input type="number" v-model="model.products.amount" placeholder="Amount" />
-                  <input type="text" v-model="model.products.category" placeholder="category" />
-                  <input type="text" v-model="model.products.prodUrl" placeholder="Picture URL" />
+                  <input
+                    type="number"
+                    v-model="payload.prodID"
+                    placeholder="Product ID"
+                  />
+                  <input
+                    type="text"
+                    v-model="payload.prodName"
+                    placeholder="Product Name"
+                  />
+                  <input
+                    type="number"
+                    v-model="payload.quantity"
+                    placeholder="Quantity"
+                  />
+                  <input type="number" v-model="payload.amount" placeholder="Amount" />
+                  <input type="text" v-model="payload.category" placeholder="category" />
+                  <input
+                    type="text"
+                    v-model="payload.prodUrl"
+                    placeholder="Picture URL"
+                  />
                 </div>
-                <button type="button" class="btn btn-primary" data-bs-dismiss="offcanvas">
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-bs-dismiss="offcanvas"
+                  @submit.prevent="confimEdit(product)"
+                >
                   Save
                 </button>
                 <button
@@ -112,7 +144,7 @@
                   Close
                 </button>
               </div>
-              <button @click="deleteProd(product.prodID)">Delete</button>
+              <button @click="confirmDelete(product.prodID)">Delete</button>
             </td>
           </tr>
         </tbody>
@@ -122,43 +154,67 @@
 </template>
 
 <script>
-import axios from "axios";
-
 export default {
-    data(){
-        return {
-            model: {
-                products: {
-                    prodID: "",
-                    prodName: "",
-                    quantity: "",
-                    prodUrl: "",
-                    amount: "",
-                    category: "",
-                }
-            }
-        }
-    },
+  data() {
+    return {
+      payload: {
+        prodID: "",
+        prodName: "",
+        quantity: "",
+        prodUrl: "",
+        amount: "",
+        category: "",
+      },
+    };
+  },
+
+  // data() {
+  //   return {
+  //     postProd: {
+  //       prodID: "",
+  //       prodName: "",
+  //       quantity: "",
+  //       prodUrl: "",
+  //       amount: "",
+  //       category: "",
+  //     },
+  //   };
+  // },
+
   methods: {
-    deleteProd(prodID) {
-      if (prodID) {
-        axios.delete(`https://limitless-api.onrender.com/product/${prodID}`);
-          location.reload()
-          alert("Please confirm.")
-      }   
+    confirmDelete(prodID) {
+      if (confirm("Please confirm")) {
+        try {
+          this.$store.dispatch("deleteProd", prodID);
+        } catch (e) {
+          console.error("Error deleting product:", error);
+        }
+      }
     },
 
-    // editProd(prodID) {
-    //   console.log(prodID);
-    //   this.getProdData(prodID)
+    // async submitData(){
+    //   this.$store.dispatch('submitForm', postProd )
     // },
-    // getProdData(prodID){
-    //     axios.get(`https://limitless-api.onrender.com/product/${prodID}`).then(res =>{
-    //         console.log(res.data.results);
-    //         this.model.products = res.data.results
-    //     })
+
+    confimEdit() {
+      try {
+        this.$store.dispatch("editProd", this.payload);
+      } catch (e) {
+        console.error("Product was not edited");
+      }
+    },
+    // AddProd() {
+    //   try {
+    //     this.$store.dispatch("addProd", this.postProd);
+    //   } catch (e) {
+    //     console.error("error while trying to add product");
+    //   }
     // },
+  //   async submitData(){
+  //     this.$store.dispatch('submitForm', this.postProd)
+  //   },
   },
+
   computed: {
     products() {
       return this.$store.state.products;

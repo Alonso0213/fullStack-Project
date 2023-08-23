@@ -141,8 +141,11 @@ export default {
     },
   methods: {
     deleteProd(prodID) {
-          axios.delete(`https://limitless-api.onrender.com/product/${prodID}`);
+      if (prodID) {
+        axios.delete(`https://limitless-api.onrender.com/product/${prodID}`);
           location.reload()
+          alert("Please confirm.")
+      }   
     },
 
     // editProd(prodID) {

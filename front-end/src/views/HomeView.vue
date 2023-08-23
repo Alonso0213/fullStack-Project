@@ -1,15 +1,12 @@
 <template>
   <body>
     <h2>Home</h2>
-  <!-- <div class="back"><img src="https://i.postimg.cc/htTNCHrt/humphrey-muleba-tf-HVGj-BSGZU-unsplash.jpg" alt=""></div> -->
-</body>
-  
+    <!-- <div class="back"><img src="https://i.postimg.cc/htTNCHrt/humphrey-muleba-tf-HVGj-BSGZU-unsplash.jpg" alt=""></div> -->
+  </body>
 </template>
 
 <script>
-export default{
-
-}
+export default {};
 </script>
 
 <style scoped>
@@ -24,5 +21,4 @@ export default{
 h2{
   background-color: grey;
 }*/
-
 </style>

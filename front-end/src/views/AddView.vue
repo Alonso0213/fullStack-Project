@@ -1,6 +1,7 @@
 <template>
     <div>
         <h2>ADD</h2>
+        <a href="/admin">Back</a>
         <form @submit.prevent="ConfimAdd">
             <input v-model="addprod.prodID" type="number" placeholder="ID">
             <input v-model="addprod.prodName" type="text" placeholder="Product Name">

@@ -26,9 +26,34 @@
             <td>£{{ product.amount }}</td>
             <td>{{ product.category }}</td>
             <td>
+              <router-link :to="{name: 'editprod', params: { id: product.prodID } }"
+              >edit</router-link>
             <button @click="confirmDelete(product.prodID)">Delete</button>
           </td>
         </tr>
+      <!-- </tbody>
+        <thead>
+          <tr>
+            <th scope="col">firstName:</th>
+            <th scope="col">lastName:</th>
+            <th scope="col">userAge:</th>
+            <th scope="col">userProfile:</th>
+            <th scope="col">gender:</th>
+            <th scope="col">emailAdd:</th>
+            <th scope="col"></th>
+          </tr>
+        </thead> -->
+        <!-- <tbody v-for="user in users" id="display-items" :key="user.userID">
+          <tr>
+            <td>{{ user.firstName }}</td>
+            <td>{{ user.lastName }}</td>
+            <td>{{ user.userAge }}</td>
+            <td><img class="pic" :src="user.userProfile" alt="img" /></td>
+            <td>{{ user.gender }}</td>
+            <td>{{ user.emailAdd }}</td>
+            <td>
+          </td>
+        </tr> -->
       </tbody>
     </table>
     </div>

@@ -6,10 +6,6 @@
 <AdminComp/>
     </div>
 
-  <div>
-    <h2>Admin</h2>
-    <AdminComp />
-  </div>
 
 </template>
 

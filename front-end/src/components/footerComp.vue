@@ -12,6 +12,36 @@
       </div>
     </div>
     <center><p>Limitless ©copyright 2023</p></center>
+    <p>
+      Rights reserved by <br />
+      Alonso & Mujahid
+    </p>
+    <div class="socails">
+      <a href="#">
+        <img
+          src="https://i.postimg.cc/PJjw68bK/2021-Facebook-icon-svg.png"
+          loading="lazy"
+          alt="icon"
+      /></a>
+      <a href="#"
+        ><img
+          src="https://i.postimg.cc/TPKghxYj/instagram-icon-logo-free-png.webp"
+          loading="lazy"
+          alt="icon"
+      /></a>
+      <a href="#"
+        ><img
+          src="https://i.postimg.cc/sgDpdSkN/702300.png"
+          alt="icon"
+          loading="lazy"
+      /></a>
+      <a href="#">
+        <img
+          src="https://i.postimg.cc/hjW0BMZZ/sne56107789919.webp"
+          alt="icon"
+          loading="lazy"
+      /></a>
+    </div>
     <div class="line"></div>
   </footer>
 </template>
@@ -21,12 +51,14 @@ export default {};
 </script>
 
 <style scoped>
+
 img {
   height: 5rem;
   border-radius: 6rem;
 }
 .space {
   display: flex;
+  justify-content: center;
   gap: 1.5rem;
 }
 .word {
@@ -39,5 +71,13 @@ img {
 }
 p {
   color: white;
+}
+.socails img {
+  height: 2.4rem;
+}
+.socails {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
 }
 </style>

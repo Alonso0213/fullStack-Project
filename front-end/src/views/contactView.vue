@@ -1,11 +1,17 @@
 <template>
   <div>
     <h2>Contact</h2>
+    <contactComp/>
   </div>
 </template>
 
 <script>
-export default {};
+import contactComp from '../components/contactComp.vue'
+export default {
+  components:{
+    contactComp
+  }
+};
 </script>
 
 <style scoped></style>

@@ -46,9 +46,11 @@ export default {};
 </script>
 
 <style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Raleway:ital,wght@1,100&display=swap");
 .navbar-nav li {
   display: flex;
   gap: 1.5rem;
+  font-family:Permanent Marker;
 }
 img {
   height: 3.4rem;

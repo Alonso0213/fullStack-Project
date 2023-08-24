@@ -56,7 +56,7 @@
       <div class="row" v-if="products">
         <div class="col" v-for="product in products" :key="product.productId">
           <div class="card" style="width: 18rem">
-            <img :src="product.prodUrl" class="card-img-top" alt="" />
+            <img :src="product.prodUrl" class="card-img-top" alt="img" loading="lazy"/>
             <div
               class="https://previews.123rf.com/images/sergwsq/sergwsq1111/sergwsq111100030/11204875-graffiti-wall-urban-hip-hop-background.jpg"
             >

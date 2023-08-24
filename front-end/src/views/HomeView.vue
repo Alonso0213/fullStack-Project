@@ -1,5 +1,5 @@
 <template>
-  <body>
+  <body class="container-fluid">
     <h2 class="h2-1">Home</h2>
     <div class="row">
       <div class="col">
@@ -15,7 +15,7 @@
 
     <div class="ft-prod">
       <center><h2 class="h2-2">Featured Products</h2></center>
-      <center><FtprodComp /></center>
+      <FtprodComp />
     </div>
   </body>
 </template>
@@ -64,4 +64,18 @@ img {
   color: whitesmoke;
   text-decoration:dotted solid red;
 }
+
+@media (width <= 400px) {
+ img{height: 15rem}
+ .img1{
+  height: 10rem;
+ }
+ 
+}
+@media (width <= 500px) {
+  body{
+    contain: layout;
+   }
+}
+
 </style>

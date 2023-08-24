@@ -1,7 +1,8 @@
 <template>
   <body>
     <h2>Products</h2>
-    <div
+    <div class="color">
+      <div
       class="btn-group"
       role="group"
       aria-label="Basic radio toggle button group"
@@ -49,6 +50,7 @@
         <li><a class="dropdown-item" href="#">Jordan</a></li>
       </ul>
     </div>
+  </div>
     <p></p>
     <div class="container-fluid">
       <div class="row" v-if="products">
@@ -88,6 +90,8 @@
         <loadingComp />
       </div>
     </div>
+    
+    
   </body>
 </template>
 
@@ -117,6 +121,7 @@ body {
   background: url(https://i.postimg.cc/02vSVRHT/11204875-graffiti-wall-urban-hip-hop-background.jpg)
     no-repeat;
   background-size: cover;
+  
 }
 .row {
   background-color: rgba(0, 0, 0, 0.902);
@@ -133,6 +138,9 @@ h2 {
 label {
   color: rgb(255, 255, 255);
   background-color: rgba(0, 0, 0, 0.813);
+}
+.color{
+  background-color: rgba(0, 0, 0, 0.913);
 }
 
 @media (width<620px) {

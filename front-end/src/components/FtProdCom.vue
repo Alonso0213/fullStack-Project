@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <div class="row" v-if="products">
         <div class="col" v-for="product in products" :key="product.productId">
-          <div class="card" style="width: 18rem">
+          <div class="card" style="width: 16rem">
             <img :src="product.prodUrl" class="card-img-top" alt="" />
             <div
               class="https://previews.123rf.com/images/sergwsq/sergwsq1111/sergwsq111100030/11204875-graffiti-wall-urban-hip-hop-background.jpg"

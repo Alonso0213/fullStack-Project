@@ -1,8 +1,16 @@
 <template>
+
+    <div>
+<h2>Admin</h2>
+<router-link to="/addprod">ADD</router-link>
+<AdminComp/>
+    </div>
+
   <div>
     <h2>Admin</h2>
     <AdminComp />
   </div>
+
 </template>
 
 <script>

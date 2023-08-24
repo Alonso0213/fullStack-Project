@@ -1,6 +1,6 @@
-import { createStore } from 'vuex'
-import axios from 'axios'
-const Api ="https://limitless-api.onrender.com/" 
+import { createStore } from "vuex";
+import axios from "axios";
+const Api = "https://limitless-api.onrender.com/";
 
 export default createStore({
   state: {
@@ -10,59 +10,90 @@ export default createStore({
     product: null,
     spinner: false,
     token: null,
-    msg: null
+    msg: null,
+    postData: null
   },
-  getters: {
-  },
+  getters: {},
   mutations: {
-    setUsers(state,users){
-      state.users =users
+    setUsers(state, users) {
+      state.users = users;
     },
-    setUser(state,user){
-      state.user =user
+    setUser(state, user) {
+      state.user = user;
     },
-    setProducts(state,products){
-      state.products =products
+    setProducts(state, products) {
+      state.products = products;
     },
-    setProduct(state,product){
-      state.product = product
-    },setSpinner(state, value) {
-      state.spinner = value
+    setProduct(state, product) {
+      state.product = product;
+    },
+    setSpinner(state, value) {
+      state.spinner = value;
     },
     setToken(state, token) {
-      state.token = token
+      state.token = token;
     },
     setMsg(state, msg) {
-      state.msg = msg
+      state.msg = msg;
+    },
+    setPostData(state, data){
+      state.postData = data
     }
-
   },
+
   actions: {
     async fetchUsers(context) {
-      try{
-        const{data} = 
-          await axios.get(`${Api}users`)
-          context.commit("setUsers",data.results)
-
-      }catch(e){
-        context.commit("setMsg", "An Error has occured😒")
-
+      try {
+        const { data } = await axios.get(`${Api}users`);
+        context.commit("setUsers", data.results);
+      } catch (e) {
+        context.commit("setMsg", "An Error has occured😒");
       }
-
     },
     async fetchProducts(context) {
-      try{
-        const{data} = 
-          await axios.get(`${Api}products`)
-          context.commit("setProducts",data.results)
+      try {
+        const { data } = await axios.get(`${Api}products`);
+        context.commit("setProducts", data.results);
+      } catch (e) {
+        context.commit("setMsg", "An Error has occured😒");
+      }
+    },
+
+    async deleteProd(context, prodID) {
+      try {
+        const { data } = await axios.delete(`${Api}product/${prodID}`);
+        if (data.msg) {
+          context.dispatch("fetchProducts");
+        }
+      } catch (e) {
+        context.commit("setMsg", "An error occurred.");
+      }
+    },
+
+    async ConfimAddprod({commit}, addprod){
+      try {
+        const res = await axios.post(`${Api}product`, addprod)
+        commit("setPostData", res.data)
+        console.log(res.data);
 
       }catch(e){
-        context.commit("setMsg", "An Error has occured😒")
-
+        console.error(err);
       }
-
     }
+
   },
-  modules: {
-  }
-})
+
+    // async addProd({commit}, context, postProd) {
+    //   try {
+    //     const response = await axios.post(`${Api}product/`, postProd);
+    //     commit("setPostResponse", response.data)
+    //     if (response, msg) {
+    //       context.dispatch("fetchProducts");
+    //       console.log(response.data);
+    //     }
+    //   } catch (e) {
+    //     commit("setMsg", "An error occurred while adding the product.");
+    //   }
+    // },
+  modules: {},
+});

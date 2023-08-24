@@ -1,6 +1,7 @@
 <template>
     <div>
 <h2>Admin</h2>
+<router-link to="/addprod">ADD</router-link>
 <AdminComp/>
     </div>
 </template>

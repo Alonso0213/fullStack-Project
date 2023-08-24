@@ -70,25 +70,18 @@ export default createStore({
       }
     },
 
-    async editProd(context, payload) {
+    async ConfimAddprod({commit}, addprod){
       try {
-        const response = await axios.patch(`${Api}product/${payload.prodID}`, payload);
-        if (response.data.msg) {
-          context.dispatch("fetchProducts");
-        }
-      } catch (error) {
-        console.error("An error occurred while updating the product:", error);
-        
-        if (error.response) {
-          console.error("Server responded with:", error.response.data);
-          if (error.response.status === 404) {
-            context.commit("setMsg", "Product not found.");
-          } else if(error.response.status === 500) {
-            context.commit("setMsg", "Internal server error.");
-          }
-        }
+        const res = await axios.post(`${Api}product`, addprod)
+        commit("setPostData", res.data)
+        console.log(res.data);
+
+      }catch(e){
+        console.error(err);
       }
-    },
+    }
+
+  },
 
     // async addProd({commit}, context, postProd) {
     //   try {
@@ -102,14 +95,5 @@ export default createStore({
     //     commit("setMsg", "An error occurred while adding the product.");
     //   }
     // },
-    async submitForm({commit}, postProd){
-      try {
-        const response = await axios.post(`${Api}product`, postProd)
-        commit('setPostData', response.data)
-      } catch (error) {
-        console.log(error);
-      }
-    }
-  },
   modules: {},
 });

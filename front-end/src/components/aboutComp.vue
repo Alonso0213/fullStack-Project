@@ -1,7 +1,9 @@
 <template>
     <div>
-      <body class="container-fluid">
-        <h2>Who we are😎😉</h2>
+      
+        <body class="container-fluid">
+          <div class="color">
+        <h2>Who are we😎😉</h2>
         <div class="row">
           <div class="col">
             <img
@@ -54,8 +56,9 @@
               </p>
             </div>
           </div>
-        </div>
+        </div></div>
       </body>
+      
     </div>
   </template>
   
@@ -90,22 +93,27 @@
   }
   
   p {
-    background-color: rgba(0, 0, 0, 0.874);
+    
     color: white;
   }
   h2 {
-    background-color: rgba(0, 0, 0, 0.874);
+   text-decoration: underline;
     color: white;
   }
-  @media (width<550) {
-    .img1 {
-      height: 22rem;
-    }
+  .color{
+    background-color: rgba(0, 0, 0, 0.897);
   }
-  @media (width>550) {
-    .img1 {
-      height: 10rem;
+  @media (width <= 620px) {
+    .img1{
+     height: 12rem;
     }
-  }
+    
+   }
+   @media (width <= 330px) {
+    .img1{
+     height: 9rem;
+    }
+    
+   }
   </style>
   

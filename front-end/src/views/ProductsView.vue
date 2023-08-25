@@ -9,10 +9,10 @@
           aria-label="Search"
           v-model="searchTerm"
         />
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <button  class="btn text-bg-danger btn-outline-success" type="submit">Search</button>
       </form>
-      <button @click="SortName">sort by name</button>
-      <button @click="SortPrice">sort by price</button>
+      <button class="sort" @click="SortName">sort by name</button>
+      <button class="sort" @click="SortPrice">sort by price</button>
       <cardComp />
     </div>
   </body>
@@ -45,6 +45,20 @@ export default {
 </script>
 
 <style scoped>
+
+.sort {
+  border-radius: 10px;
+  padding: 10px;
+margin: 10px;
+background-color: rgb(136, 0, 0);
+color: rgb(254, 254, 254);
+box-shadow: 10px 10px 5px;
+}
+.sort:hover {
+  background: white;
+  color: red;
+
+}
 
 body {
   background-color: rgba(0, 0, 0, 0.913);

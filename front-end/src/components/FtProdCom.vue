@@ -2,7 +2,7 @@
   <div>
     <div class="container-fluid">
       <div class="row" v-if="products">
-        <div class="col" v-for="product in products" :key="product.productId">
+        <div class="col" v-for="product in limitedProducts" :key="product.productId">
           <div class="card" style="width: 16rem">
             <img :src="product.prodUrl" class="card-img-top" alt="" />
             <div
@@ -26,7 +26,7 @@
                     amount: product.amount,
                   },
                 }"
-                ><button class="btn btn-primary">
+                ><button class="btn text-bg-danger btn-primary">
                   View Product
                 </button></router-link
               >
@@ -51,9 +51,12 @@ export default {
     products() {
       return this.$store.state.products;
     },
+    limitedProducts() {
+      return this.products.slice(0, 4);
+    },
   },
   mounted() {
-    this.$store.dispatch("fetchProducts");
+    this.$store.dispatch("fetchftProducts");
   },
 };
 </script>

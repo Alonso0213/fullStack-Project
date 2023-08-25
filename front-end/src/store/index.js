@@ -69,6 +69,22 @@ export default createStore({
         context.commit("setMsg", "An Error has occured😒");
       }
     },
+    async fetchftProducts(context) {
+      try {
+        const { data } = await axios.get(`${Api}products?limit=4`);
+        context.commit("setProducts", data.results);
+      } catch (e) {
+        context.commit("setMsg", "An Error has occured😒");
+      }
+    },
+    async fetchProducts(context) {
+      try {
+        const { data } = await axios.get(`${Api}products`);
+        context.commit("setProducts", data.results);
+      } catch (e) {
+        context.commit("setMsg", "An Error has occured😒");
+      }
+    },
     async deleteProd(context, prodID) {
       try {
         const { data } = await axios.delete(`${Api}product/${prodID}`);

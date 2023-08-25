@@ -4,7 +4,7 @@
     <div class="container-fluid">
       <div class="row" v-if="products">
         <div class="col" v-for="product in products" :key="product.productId">
-          <div class="card" style="width: 18rem">
+          <div class="card border-danger" style="width: 18rem">
             <img :src="product.prodUrl" class="card-img-top" alt="img" loading="lazy"/>
             <div
               class="https://previews.123rf.com/images/sergwsq/sergwsq1111/sergwsq111100030/11204875-graffiti-wall-urban-hip-hop-background.jpg"
@@ -28,7 +28,7 @@
                   },
                 }"
 
-                ><button class="btn btn-primary">View Product</button></router-link
+                ><button class="view">View Product</button></router-link
                 >
             </div>
           </div>
@@ -73,6 +73,24 @@ body {
   background-size: cover;
   
 }
+
+.view{
+  border: 2px black solid;
+  border-radius: 20px;
+  height: 40px;
+  background-color: rgba(88, 9, 9, 0.792);
+  color: rgb(177, 175, 175);
+}
+
+.view:hover {
+  background-color: rgb(13, 4, 60);
+  color: white;
+
+}
+
+.view:focus {
+  cursor: progress;
+}
 .row {
   background-color: rgba(0, 0, 0, 0.902);
 }
@@ -93,6 +111,11 @@ label {
   background-color: rgba(0, 0, 0, 0.913);
 }
 
+.card {
+  padding: 20px;
+  margin: 10px;
+}
+
 
 @media (width <= 400px) {
   .card{
@@ -105,7 +128,9 @@ label {
     justify-content: center;
   }
 .card{
-  width: 12rem;
+  width: 12rem !important;
 }
+
+
  }
 </style>

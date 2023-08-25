@@ -2,9 +2,9 @@
 
     <div class="bod">
 <h2>Admin</h2>
-<router-link to="/addprod" class="btn btn-primary">ADD product</router-link>
+<router-link class="btn border-danger" to="/addprod">ADD product</router-link>
 <br><br>
-<router-link to="/adduser" class="btn btn-primary">ADD user</router-link>
+<router-link class="btn text-bg-danger" to="/adduser">ADD user</router-link>
 <AdminComp/>
     </div>
 
@@ -27,6 +27,7 @@ h2{
   font-family:Black Ops One;
   color: black;
 }
+
 .bod{
   background-color: rgba(128, 128, 128, 0.927);
 }

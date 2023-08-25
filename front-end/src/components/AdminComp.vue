@@ -3,7 +3,7 @@
     <h2>Product Listing</h2>
     <div class="table table-responsive-xxl">
       <table
-        class="table table-warning table-striped table-hover table-bordered border-warning "
+        class="table border-info table-striped table-hover table-bordered bg-danger-subtle"
       >
         <thead>
           <tr>
@@ -26,9 +26,9 @@
             <td>{{ product.category }}</td>
             <td>
               <router-link :to="{ name: 'editprod', params: { id: product.prodID } }"
-               class="btn btn-primary" >edit</router-link
+               class="btn btn-info" >edit</router-link
               >
-              <button @click="confirmDelete(product.prodID)" class="btn btn-primary">Delete</button>
+              <button @click="confirmDelete(product.prodID)" class="del btn btn-warning">Delete</button>
             </td>
           </tr>
         </tbody>
@@ -41,6 +41,7 @@
       >
         <thead>
           <tr>
+            <th scope="col">ID:</th>
             <th scope="col">firstName:</th>
             <th scope="col">lastName:</th>
             <th scope="col">userAge:</th>
@@ -52,6 +53,7 @@
         </thead>
         <tbody v-for="user in users" id="display-items" :key="user.userID">
           <tr>
+            <td>{{ user.userID }}</td>
             <td>{{ user.firstName }}</td>
             <td>{{ user.lastName }}</td>
             <td>{{ user.userAge }}</td>
@@ -59,9 +61,9 @@
             <td>{{ user.gender }}</td>
             <td>{{ user.emailAdd }}</td>
             <td><router-link :to="{ name: 'edituser', params: { id: user.userID } }"
-                class="btn btn-primary"  >edit</router-link
+                class="del btn btn-info"  >edit</router-link
               >
-            <button @click="confirmDeleteU(user.userID)" class="btn btn-primary">Delete</button></td>
+            <button @click="confirmDeleteU(user.userID)" class="btn btn-warning">Delete</button></td>
           </tr>
         </tbody>
       </table>
@@ -117,5 +119,10 @@ export default {
 }
 h2{
     color: black;
+}
+
+.del:hover {
+  background-color: red;
+  color: black;
 }
 </style>

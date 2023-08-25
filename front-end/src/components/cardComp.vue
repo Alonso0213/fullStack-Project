@@ -145,6 +145,7 @@ label {
   background-color: rgba(0, 0, 0, 0.913);
 }
 
+
 @media (width <= 400px) {
   .card{
     width: 11rem;

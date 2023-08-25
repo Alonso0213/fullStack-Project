@@ -1,10 +1,10 @@
 <template>
 
-    <div>
+    <div class="bod">
 <h2>Admin</h2>
-<router-link to="/addprod">ADD product</router-link>
-<br>
-<router-link to="/adduser">ADD user</router-link>
+<router-link to="/addprod" class="btn btn-primary">ADD product</router-link>
+<br><br>
+<router-link to="/adduser" class="btn btn-primary">ADD user</router-link>
 <AdminComp/>
     </div>
 
@@ -25,5 +25,9 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Raleway:ital,wght@1,100&display=swap");
 h2{
   font-family:Black Ops One;
+  color: black;
+}
+.bod{
+  background-color: rgba(128, 128, 128, 0.927);
 }
 </style>

@@ -3,7 +3,7 @@
     <h2>Product Listing</h2>
     <div class="table table-responsive-xxl">
       <table
-        class="table table-warning table-striped table-hover table-bordered border-warning"
+        class="table table-warning table-striped table-hover table-bordered border-warning "
       >
         <thead>
           <tr>
@@ -26,9 +26,9 @@
             <td>{{ product.category }}</td>
             <td>
               <router-link :to="{ name: 'editprod', params: { id: product.prodID } }"
-                >edit</router-link
+               class="btn btn-primary" >edit</router-link
               >
-              <button @click="confirmDelete(product.prodID)">Delete</button>
+              <button @click="confirmDelete(product.prodID)" class="btn btn-primary">Delete</button>
             </td>
           </tr>
         </tbody>
@@ -59,9 +59,9 @@
             <td>{{ user.gender }}</td>
             <td>{{ user.emailAdd }}</td>
             <td><router-link :to="{ name: 'edituser', params: { id: user.userID } }"
-                >edit</router-link
+                class="btn btn-primary"  >edit</router-link
               >
-            <button @click="confirmDeleteU(user.userID)">Delete</button></td>
+            <button @click="confirmDeleteU(user.userID)" class="btn btn-primary">Delete</button></td>
           </tr>
         </tbody>
       </table>
@@ -114,5 +114,8 @@ export default {
 <style scoped>
 .pic {
   width: 7rem;
+}
+h2{
+    color: black;
 }
 </style>

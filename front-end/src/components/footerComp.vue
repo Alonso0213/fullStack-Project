@@ -12,7 +12,7 @@
       </div>
     </div>
 
-      <p class="copy">Limitless ©copyright 2023</p>
+    
 
     <center><p>Limitless ©copyright 2023</p></center>
     <p>

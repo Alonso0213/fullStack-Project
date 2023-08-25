@@ -78,7 +78,6 @@ export default createStore({
         context.commit("setMsg", "An error occurred.");
       }
     },
-
     async ConfimAddprod({ commit }, addprod) {
       try {
         const res = await axios.post(`${Api}product`, addprod);
@@ -88,7 +87,6 @@ export default createStore({
         console.error(err);
       }
     },
-
     async ConfimAdduser({ commit }, adduser) {
       try {
         const res = await axios.post(`${Api}user`, adduser);
@@ -98,12 +96,23 @@ export default createStore({
         console.error(err);
       }
     },
-
     async ConfimEditProd(context, editprod) {
       try {
         const res = await axios.patch(
           `${Api}product/${editprod.prodID}`,
           editprod
+        );
+        context.commit("setPostData", res.data);
+        console.log(res.data);
+      } catch (e) {
+        console.log(err);
+      }
+    },
+    async ConfimEditUser(context, adduser) {
+      try {
+        const res = await axios.patch(
+          `${Api}user/${adduser.userID}`,
+          adduser
         );
         context.commit("setPostData", res.data);
         console.log(res.data);

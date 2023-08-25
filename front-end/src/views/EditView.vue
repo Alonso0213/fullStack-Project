@@ -1,6 +1,7 @@
 <template>
   <div>
     <h2>Edit Product</h2>
+    <a href="/admin">Back</a>
     <form @submit.prevent="EditProd">
       <input v-model="editprod.prodName" type="text" placeholder="Product Name" />
       <input v-model="editprod.quantity" type="number" placeholder="Quantity" />

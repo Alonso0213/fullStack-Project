@@ -47,7 +47,7 @@
             <th scope="col">userProfile:</th>
             <th scope="col">gender:</th>
             <th scope="col">emailAdd:</th>
-            <th scope="col"></th>
+            <th scope="col">Edit/Delete:</th>
           </tr>
         </thead>
         <tbody v-for="user in users" id="display-items" :key="user.userID">
@@ -58,7 +58,10 @@
             <td><img class="pic" :src="user.userProfile" alt="img" /></td>
             <td>{{ user.gender }}</td>
             <td>{{ user.emailAdd }}</td>
-            <td><button @click="confirmDeleteU(user.userID)">Delete</button></td>
+            <td><router-link :to="{ name: 'edituser', params: { id: user.userID } }"
+                >edit</router-link
+              >
+            <button @click="confirmDeleteU(user.userID)">Delete</button></td>
           </tr>
         </tbody>
       </table>

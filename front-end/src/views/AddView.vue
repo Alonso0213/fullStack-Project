@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2>ADD</h2>
+        <h2>ADD Product</h2>
         <a href="/admin">Back</a>
         <form @submit.prevent="ConfimAdd">
             <input v-model="addprod.prodID" type="number" placeholder="ID">
@@ -30,7 +30,7 @@
             }
         },
         methods: {
-            async ConfimAdd() {
+            ConfimAdd() {
                 this.$store.dispatch("ConfimAddprod", this.addprod)
             }
         }

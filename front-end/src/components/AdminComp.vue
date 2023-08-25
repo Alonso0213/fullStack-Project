@@ -2,7 +2,6 @@
   <div>
     <h2>Product Listing</h2>
     <div class="table table-responsive-xxl">
-      <AddProdCompVue />
       <table
         class="table table-warning table-striped table-hover table-bordered border-warning"
       >
@@ -26,12 +25,20 @@
             <td>£{{ product.amount }}</td>
             <td>{{ product.category }}</td>
             <td>
-              <router-link :to="{name: 'editprod', params: { id: product.prodID } }"
-              >edit</router-link>
-            <button @click="confirmDelete(product.prodID)">Delete</button>
-          </td>
-        </tr>
-      <!-- </tbody>
+              <router-link :to="{ name: 'editprod', params: { id: product.prodID } }"
+                >edit</router-link
+              >
+              <button @click="confirmDelete(product.prodID)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <h2>User Listing</h2>
+    <div class="table table-responsive-xxl">
+      <table
+        class="table table-warning table-striped table-hover table-bordered border-warning"
+      >
         <thead>
           <tr>
             <th scope="col">firstName:</th>
@@ -42,8 +49,8 @@
             <th scope="col">emailAdd:</th>
             <th scope="col"></th>
           </tr>
-        </thead> -->
-        <!-- <tbody v-for="user in users" id="display-items" :key="user.userID">
+        </thead>
+        <tbody v-for="user in users" id="display-items" :key="user.userID">
           <tr>
             <td>{{ user.firstName }}</td>
             <td>{{ user.lastName }}</td>
@@ -51,11 +58,10 @@
             <td><img class="pic" :src="user.userProfile" alt="img" /></td>
             <td>{{ user.gender }}</td>
             <td>{{ user.emailAdd }}</td>
-            <td>
-          </td>
-        </tr> -->
-      </tbody>
-    </table>
+            <td><button @click="confirmDeleteU(user.userID)">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </template>
@@ -63,28 +69,41 @@
 <script>
 export default {
   components: {
-    
-  }, 
+
+  },
 
   methods: {
+    confirmDeleteU(userID) {
+      if (confirm("Please confirm")) {
+        try {
+          this.$store.dispatch("deleteUser", userID);
+        } catch (e) {
+          console.log("Error deleting user:");
+        }
+      }
+    },
     confirmDelete(prodID) {
       if (confirm("Please confirm")) {
         try {
           this.$store.dispatch("deleteProd", prodID);
         } catch (e) {
-          console.error("Error deleting product:", error);
+          console.log("Error deleting product:");
         }
       }
     },
   },
 
   computed: {
+    users() {
+      return this.$store.state.users;
+    },
     products() {
       return this.$store.state.products;
     },
   },
   mounted() {
     this.$store.dispatch("fetchProducts");
+    this.$store.dispatch("fetchUsers");
   },
 };
 </script>

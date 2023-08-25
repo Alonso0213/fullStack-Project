@@ -30,11 +30,6 @@ export default {
   methods: {
     EditProd() {
       this.$store.dispatch("ConfimEditProd", this.editprod);
-      this.editprod.prodName = data.prodName;
-      this.editprod.quantity = data.quantity;
-      this.editprod.prodUrl = data.prodUrl;
-      this.editprod.amount = data.amount;
-      this.editprod.category = data.category;
     },
   },
 };

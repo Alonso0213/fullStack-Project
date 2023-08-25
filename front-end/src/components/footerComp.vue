@@ -11,7 +11,7 @@
         />
       </div>
     </div>
-    <center><p>Limitless ©copyright 2023</p></center>
+      <p class="copy">Limitless ©copyright 2023</p>
     <div class="line"></div>
   </footer>
 </template>
@@ -21,6 +21,9 @@ export default {};
 </script>
 
 <style scoped>
+.copy {
+  text-align: center;
+}
 img {
   height: 5rem;
   border-radius: 6rem;

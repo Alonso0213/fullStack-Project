@@ -12,8 +12,8 @@ export default createStore({
     token: null,
     msg: null,
     postData: null,
+    searchResults: null,
   },
-  getters: {},
   mutations: {
     setUsers(state, users) {
       state.users = users;
@@ -38,6 +38,17 @@ export default createStore({
     },
     setPostData(state, data) {
       state.postData = data;
+    },
+    setSearch(state, letter) {
+      state.filteredProducts = state.products.filter(product =>
+        product.prodName.charAt(0).toLowerCase() === letter.toLowerCase()
+      );
+    },
+    SortName(state) {
+      state.products.sort((a, b) => a.prodName.localeCompare(b.prodName));
+    },
+    SortPrice(state) {
+      state.products.sort((a, b) => a.amount - b.amount);
     },
   },
 
@@ -119,6 +130,38 @@ export default createStore({
       } catch (e) {
         console.log(err);
       }
+    },
+    async searchProducts(context, searchTerm) {
+      try {
+        const res = await fetch(`${Api}products/${prodName}=${searchTerm}`)
+        const data = await res.json()
+        context.commit("setSearch", data.res)
+      } catch (e) {
+        console.log("Error");
+      }
+    },
+    async FilterName(context) {
+      try {
+        const { data } = await axios.get(`${Api}products`);
+        context.commit("SortName", data.results);
+      } catch (e) {
+        context.commit("setMsg", "An Error has occured😒");
+      }
+    },
+    async FilterPrice(context) {
+      try {
+        const { data } = await axios.get(`${Api}products`);
+        context.commit("SortPrice", data.results);
+      } catch (e) {
+        context.commit("setMsg", "An Error has occured😒");
+      }
+    },
+
+
+  },
+  getters: {
+    filteredProducts(state) {
+      return state.searchResults;
     },
   },
   modules: {},

@@ -4,7 +4,8 @@
       <router-link to="/"
         ><img
           src="https://i.postimg.cc/3Rp2z3WF/Screenshot-2023-08-22-115307-removebg-preview.png"
-          alt=""
+          alt="logo"
+          loading="lazy"
       /></router-link>
       <button
         class="navbar-toggler"
@@ -55,4 +56,21 @@ export default {};
 img {
   height: 3.4rem;
 }
+input{
+  width:fit-content 
+}
+@media (width <= 400px) {
+  img{
+   height: 2.3rem;
+  }
+
+  .navbar-nav li {
+    display: grid;
+    font-family:Permanent Marker;
+  }
+  input{
+    width:9rem 
+  }
+  
+ }
 </style>

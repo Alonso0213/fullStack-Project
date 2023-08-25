@@ -1,5 +1,5 @@
 <template>
-  <body>
+  <body class="container-fluid">
     <h2>Products</h2>
     <div class="color">
       <div
@@ -113,6 +113,8 @@ export default {
 </script>
 
 <style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Raleway:ital,wght@1,100&display=swap");
+h2{font-family:Black Ops One;}
 body div #move {
   display: grid;
   justify-content: end;
@@ -128,7 +130,7 @@ body {
 }
 h2 {
   background-color: rgba(0, 0, 0, 0.902);
-  color: rgb(255, 0, 0);
+  color:whitesmoke
 }
 #butt {
   background-color: black;
@@ -143,6 +145,18 @@ label {
   background-color: rgba(0, 0, 0, 0.913);
 }
 
-@media (width<620px) {
+@media (width <= 400px) {
+  .card{
+    width: 11rem;
+  }
+ }
+ @media (width <= 624px) {
+  .row{
+    display: grid;
+    justify-content: center;
+  }
+.card{
+  width: 12rem;
 }
+ }
 </style>

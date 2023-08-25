@@ -1,57 +1,6 @@
 <template>
   <body>
     <h2>Products</h2>
-    <div class="color">
-      <div
-      class="btn-group"
-      role="group"
-      aria-label="Basic radio toggle button group"
-    >
-      <input
-        type="radio"
-        class="btn-check"
-        name="btnradio"
-        id="btnradio1"
-        autocomplete="off"
-        checked
-      />
-      <label class="btn btn-outline-primary" for="btnradio1">All</label>
-
-      <input
-        type="radio"
-        class="btn-check"
-        name="btnradio"
-        id="btnradio2"
-        autocomplete="off"
-      />
-      <label class="btn btn-outline-primary" for="btnradio2">Price</label>
-
-      <input
-        type="radio"
-        class="btn-check"
-        name="btnradio"
-        id="btnradio3"
-        autocomplete="off"
-      />
-      <label class="btn btn-outline-primary" for="btnradio3">A-Z</label>
-    </div>
-    <div class="btn-group" id="move" role="group">
-      <button
-        type="button"
-        class="btn btn-primary dropdown-toggle"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-        id="butt"
-      >
-        Category
-      </button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Nike</a></li>
-        <li><a class="dropdown-item" href="#">Jordan</a></li>
-      </ul>
-    </div>
-  </div>
-    <p></p>
     <div class="container-fluid">
       <div class="row" v-if="products">
         <div class="col" v-for="product in products" :key="product.productId">
@@ -80,7 +29,6 @@
                 }"
                 ><button class="btn btn-primary">View Product</button></router-link
                 >
-              >
             </div>
           </div>
         </div>

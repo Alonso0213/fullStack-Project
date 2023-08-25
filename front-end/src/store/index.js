@@ -84,8 +84,9 @@ export default createStore({
         const res = await axios.patch(`${Api}product/${editprod.prodID}`, editprod)
         context.commit("setPostData", res.data)
         console.log(res.data);
+
       }catch(e){
-        console.log(e);
+        console.log(err);
       }
     }
 

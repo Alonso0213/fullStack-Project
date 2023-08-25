@@ -19,9 +19,9 @@ export default {
       editprod: {
         prodID: this.id,
         prodName: "",
-        quantity: "",
+        quantity: 0,
         prodUrl: "",
-        amount: "",
+        amount: 0,
         category: "",
       },
     };
@@ -29,7 +29,12 @@ export default {
   props: ["id"],
   methods: {
     EditProd() {
-       this.$store.dispatch("ConfimEditProd", this.editprod);
+      this.$store.dispatch("ConfimEditProd", this.editprod);
+      this.editprod.prodName = data.prodName;
+      this.editprod.quantity = data.quantity;
+      this.editprod.prodUrl = data.prodUrl;
+      this.editprod.amount = data.amount;
+      this.editprod.category = data.category;
     },
   },
 };

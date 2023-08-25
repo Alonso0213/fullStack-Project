@@ -58,4 +58,11 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+@media (width <= 624px) {
+  .row{
+    display: grid;
+    justify-content: center;
+  }
+}
+</style>

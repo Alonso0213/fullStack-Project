@@ -2,12 +2,12 @@
     <div>
       
         <body class="container-fluid">
-          <div class="color">
-        <h2>Who are we😎😉</h2>
+          <div class="color container-fluid">
+        <h2 class="animate__animated animate__fadeInUp">Who are we</h2>
         <div class="row">
           <div class="col">
             <img
-              class="img1"
+              class="img1 animate__animated animate__flipInX"
               src="https://i.postimg.cc/hjGc9nmL/e2140f371a7d450c8721f68a7dd42568.webp"
               alt="img"
               loading="lazy"
@@ -69,8 +69,8 @@
   </script>
   
   <style scoped>
-  @import url("https://fonts.googleapis.com/css2?family=Cinzel&family=Crimson+Text&family=Orbitron&display=swap");
-  
+  @import url("https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Raleway:ital,wght@1,100&display=swap");
+  @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@1,300&family=Raleway:ital,wght@1,100&display=swap');
   .row {
     display: flex;
     flex-wrap: wrap;
@@ -93,12 +93,15 @@
   }
   
   p {
-    
+    font-family: Alegreya Sans;
+    font-size: larger;
     color: white;
   }
   h2 {
    text-decoration: underline;
     color: white;
+    font-family:Black Ops One;
+
   }
   .color{
     background-color: rgba(0, 0, 0, 0.897);

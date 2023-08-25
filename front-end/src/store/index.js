@@ -11,7 +11,7 @@ export default createStore({
     spinner: false,
     token: null,
     msg: null,
-    postData: null
+    postData: null,
   },
   getters: {},
   mutations: {
@@ -36,9 +36,9 @@ export default createStore({
     setMsg(state, msg) {
       state.msg = msg;
     },
-    setPostData(state, data){
-      state.postData = data
-    }
+    setPostData(state, data) {
+      state.postData = data;
+    },
   },
 
   actions: {
@@ -58,7 +58,6 @@ export default createStore({
         context.commit("setMsg", "An Error has occured😒");
       }
     },
-
     async deleteProd(context, prodID) {
       try {
         const { data } = await axios.delete(`${Api}product/${prodID}`);
@@ -69,31 +68,58 @@ export default createStore({
         context.commit("setMsg", "An error occurred.");
       }
     },
-
-    async ConfimAddprod({commit}, addprod){
+    async deleteUser(context, userID) {
       try {
-        const res = await axios.post(`${Api}product`, addprod)
-        commit("setPostData", res.data)
+        const { data } = await axios.delete(`${Api}user/${userID}`);
+        if (data.msg) {
+          context.dispatch("fetchUsers");
+        }
+      } catch (e) {
+        context.commit("setMsg", "An error occurred.");
+      }
+    },
+    async ConfimAddprod({ commit }, addprod) {
+      try {
+        const res = await axios.post(`${Api}product`, addprod);
+        commit("setPostData", res.data);
         console.log(res.data);
-
-      }catch(e){
+      } catch (e) {
         console.error(err);
       }
-    }
-
+    },
+    async ConfimAdduser({ commit }, adduser) {
+      try {
+        const res = await axios.post(`${Api}user`, adduser);
+        commit("setPostData", res.data);
+        console.log(res.data);
+      } catch (e) {
+        console.error(err);
+      }
+    },
+    async ConfimEditProd(context, editprod) {
+      try {
+        const res = await axios.patch(
+          `${Api}product/${editprod.prodID}`,
+          editprod
+        );
+        context.commit("setPostData", res.data);
+        console.log(res.data);
+      } catch (e) {
+        console.log(err);
+      }
+    },
+    async ConfimEditUser(context, adduser) {
+      try {
+        const res = await axios.patch(
+          `${Api}user/${adduser.userID}`,
+          adduser
+        );
+        context.commit("setPostData", res.data);
+        console.log(res.data);
+      } catch (e) {
+        console.log(err);
+      }
+    },
   },
-
-    // async addProd({commit}, context, postProd) {
-    //   try {
-    //     const response = await axios.post(`${Api}product/`, postProd);
-    //     commit("setPostResponse", response.data)
-    //     if (response, msg) {
-    //       context.dispatch("fetchProducts");
-    //       console.log(response.data);
-    //     }
-    //   } catch (e) {
-    //     commit("setMsg", "An error occurred while adding the product.");
-    //   }
-    // },
   modules: {},
 });

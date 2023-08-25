@@ -11,6 +11,9 @@
         />
       </div>
     </div>
+
+      <p class="copy">Limitless ©copyright 2023</p>
+
     <center><p>Limitless ©copyright 2023</p></center>
     <p>
       Rights reserved by <br />
@@ -42,6 +45,7 @@
           loading="lazy"
       /></a>
     </div>
+
     <div class="line"></div>
   </footer>
 </template>
@@ -51,6 +55,11 @@ export default {};
 </script>
 
 <style scoped>
+
+.copy {
+  text-align: center;
+}
+
 
 img {
   height: 5rem;

@@ -4,7 +4,8 @@
       <router-link to="/"
         ><img
           src="https://i.postimg.cc/3Rp2z3WF/Screenshot-2023-08-22-115307-removebg-preview.png"
-          alt=""
+          alt="logo"
+          loading="lazy"
       /></router-link>
       <button
         class="navbar-toggler"
@@ -46,11 +47,30 @@ export default {};
 </script>
 
 <style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Raleway:ital,wght@1,100&display=swap");
 .navbar-nav li {
   display: flex;
   gap: 1.5rem;
+  font-family:Permanent Marker;
 }
 img {
   height: 3.4rem;
 }
+input{
+  width:fit-content 
+}
+@media (width <= 400px) {
+  img{
+   height: 2.3rem;
+  }
+
+  .navbar-nav li {
+    display: grid;
+    font-family:Permanent Marker;
+  }
+  input{
+    width:9rem 
+  }
+  
+ }
 </style>

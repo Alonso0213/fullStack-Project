@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="card" aria-hidden="true"  style="width: 18rem">
+        <center><div class="card" aria-hidden="true"  style="width: 18rem">
             <img src="" class="card-img-top" alt="">
             <div class="card-body">
               <h5 class="card-title placeholder-glow">
@@ -15,7 +15,7 @@
               </p>
               <a class="btn btn-primary disabled placeholder col-6" aria-disabled="true"></a>
             </div>
-          </div>
+          </div></center>
     </div>
 </template>
 
